@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+
+# Other projects in this folder
+WorkBuddy/
+ai_completion/
+ai_config/
+go/
+project/
+
+# Config with sensitive info
+config/
