@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f4feff">
+<title>关于 · HaiRong Chen</title>
+<style>
+  :root {
+    --ice:#f4feff; --navy:#261e5c; --steel:#3d5d7a; --sky:#4ca5d7;
+    --surface:var(--ice); --glass-bg:rgba(244,254,255,0.50);
+    --glass-border:rgba(61,93,122,0.13); --glass-blur:18px;
+    --text:var(--navy); --text-secondary:var(--steel); --text-tertiary:#6e8a9e;
+    --accent:var(--sky); --accent-deep:#3494c0; --accent-light:#7cc5e8;
+    --accent-bg:rgba(76,165,215,0.09); --accent-bg-deep:rgba(76,165,215,0.15);
+    --shadow-navy:38,30,92;
+    --shadow-xs:0 1px 2px rgba(38,30,92,0.04);
+    --shadow-sm:0 2px 8px rgba(38,30,92,0.06);
+    --shadow-md:0 4px 16px rgba(38,30,92,0.08);
+    --shadow-lg:0 8px 28px rgba(38,30,92,0.10);
+    --shadow-xl:0 14px 42px rgba(38,30,92,0.13);
+    --radius-sm:14px; --radius-md:20px; --radius-lg:26px; --radius-xl:32px;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    --font-mono:"SF Mono",ui-monospace,"Cascadia Code",monospace;
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent; }
+  body { font-family:var(--font); background:var(--surface); color:var(--text); line-height:1.6; min-height:100vh; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  .bg-layer { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+  .bg-layer::before,.bg-layer::after { content:''; position:absolute; border-radius:50%; filter:blur(110px); }
+  .bg-layer::before { width:65vw; height:65vw; max-width:640px; max-height:640px; background:radial-gradient(circle,rgba(76,165,215,0.18) 0%,rgba(76,165,215,0.06) 40%,transparent 65%); top:-12%; left:-8%; }
+  .bg-layer::after { width:55vw; height:55vw; max-width:520px; max-height:520px; background:radial-gradient(circle,rgba(61,93,122,0.14) 0%,rgba(61,93,122,0.04) 40%,transparent 65%); bottom:-8%; right:-6%; }
+  .bg-wash-center { position:fixed; border-radius:50%; pointer-events:none; z-index:0; width:42vw; height:42vw; max-width:440px; max-height:440px; background:radial-gradient(circle,rgba(124,197,232,0.12) 0%,rgba(76,165,215,0.04) 35%,transparent 60%); filter:blur(90px); top:55%; left:45%; transform:translate(-50%,-50%); }
+  .bg-grain { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:180px 180px; }
+  .bg-grid { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.025; background-image:linear-gradient(var(--navy) 1px,transparent 1px),linear-gradient(90deg,var(--navy) 1px,transparent 1px); background-size:48px 48px; }
+  .wrapper { position:relative; z-index:2; max-width:620px; margin:0 auto; padding:max(30px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(64px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left)); }
+  .glass-card { background:var(--glass-bg); backdrop-filter:blur(var(--glass-blur)) saturate(160%); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); border:1px solid var(--glass-border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); position:relative; overflow:hidden; }
+  .glass-card::after { content:''; position:absolute; inset:0; pointer-events:none; z-index:0; border-radius:inherit; background:linear-gradient(140deg,rgba(255,255,255,0.22) 0%,rgba(255,255,255,0.06) 35%,transparent 65%); }
+  .glass-card>* { position:relative; z-index:1; }
+  .section { margin-bottom:16px; box-shadow:var(--shadow-sm); }
+  .section-inner { padding:28px 26px; }
+  .sec-header { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+  .sec-header .icon { width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; background:var(--accent-bg); color:var(--accent); }
+  .sec-header h2 { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--text-tertiary); }
+  .sec-divider { height:1px; background:linear-gradient(90deg,var(--glass-border) 0%,rgba(61,93,122,0.06) 50%,transparent 100%); margin-bottom:20px; }
+  .about-avatar { width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,var(--sky) 0%,var(--accent-deep) 50%,var(--steel) 100%); display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:600; letter-spacing:1.5px; color:#fff; margin:0 auto 20px; box-shadow:0 8px 28px rgba(38,30,92,0.22),inset 0 1px 0 rgba(255,255,255,0.35); }
+  .about-name { font-size:22px; font-weight:700; color:var(--navy); margin-bottom:6px; text-align:center; }
+  .about-desc { font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:24px; text-align:center; }
+  .info-row { display:flex; align-items:flex-start; gap:14px; padding:15px 0; border-bottom:1px solid rgba(61,93,122,0.08); }
+  .info-row:last-child { border-bottom:none; }
+  .info-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+  .info-label { font-size:11px; color:var(--text-tertiary); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:3px; font-weight:600; }
+  .info-value { font-size:14px; color:var(--navy); font-weight:500; }
+  .info-value a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+  .info-value a:hover { color:var(--accent-deep); }
+  .footer { text-align:center; padding:10px 0 0; font-size:12px; color:var(--text-tertiary); letter-spacing:.4px; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  @media (min-width:768px) { .wrapper { padding:max(60px,env(safe-area-inset-top)) max(32px,env(safe-area-inset-right)) max(96px,env(safe-area-inset-bottom)) max(32px,env(safe-area-inset-left)); } .section-inner { padding:34px 32px; } }
+  @media (prefers-color-scheme:dark) {
+    :root { --surface:#0a0a18; --glass-bg:rgba(14,12,28,0.55); --glass-border:rgba(61,93,122,0.22); --text:#e6f2f8; --text-secondary:#8eaec2; --text-tertiary:#516a7c; --accent-bg:rgba(76,165,215,0.12); --accent-bg-deep:rgba(76,165,215,0.22); }
+    .bg-layer::before { background:radial-gradient(circle,rgba(76,165,215,0.10) 0%,rgba(76,165,215,0.03) 40%,transparent 65%); }
+    .bg-layer::after { background:radial-gradient(circle,rgba(61,93,122,0.08) 0%,rgba(61,93,122,0.02) 40%,transparent 65%); }
+    .bg-wash-center { background:radial-gradient(circle,rgba(76,165,215,0.06) 0%,rgba(76,165,215,0.02) 40%,transparent 60%); }
+    .bg-grain { opacity:.06; } .bg-grid { opacity:.03; }
+    .glass-card::after { background:linear-gradient(140deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.01) 35%,transparent 65%); }
+    .about-avatar { background:linear-gradient(135deg,var(--sky),var(--steel),var(--navy)); }
+  }
+  html[data-theme="dark"] { --surface:#0a0a18; --glass-bg:rgba(14,12,28,0.55); --glass-border:rgba(61,93,122,0.22); --text:#e6f2f8; --text-secondary:#8eaec2; --text-tertiary:#516a7c; --accent-bg:rgba(76,165,215,0.12); --accent-bg-deep:rgba(76,165,215,0.22); }
+</style>
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <div class="bg-wash-center"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-grain"></div>
+
+  <div class="wrapper">
+    <!-- 导航栏由 nav.js 动态生成 -->
+
+    <div class="glass-card section">
+      <div class="section-inner">
+        <div class="sec-header">
+          <div class="icon">👤</div>
+          <h2>关于我</h2>
+        </div>
+        <div class="sec-divider"></div>
+
+        <div class="about-avatar">HR</div>
+        <div class="about-name">HaiRong Chen</div>
+        <p class="about-desc">
+          专注于量化交易与 AI 应用的独立开发者。喜欢用工程化的方式解决交易中的实际问题，
+          追求策略的可靠性而非复杂度。
+        </p>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Location</div>
+            <div class="info-value">中国</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📊</div>
+          <div>
+            <div class="info-label">Focus</div>
+            <div class="info-value">量化交易 · AI Agent · 自动化</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🐙</div>
+          <div>
+            <div class="info-label">GitHub</div>
+            <div class="info-value"><a href="https://github.com/Roke111" target="_blank" rel="noopener">github.com/Roke111</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:412994248@qq.com">412994248@qq.com</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(61,93,122,0.10);">
+          <div class="info-label" style="margin-bottom:10px; font-size:11px; color:var(--text-tertiary); letter-spacing:2px;">RECENT ACTIVITY</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--steel);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span>
+              EURUSD M1 自动交易 EA 持续迭代优化
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--steel);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--sky);flex-shrink:0;opacity:0.6;"></span>
+              A 股涨停分析 Agent 开发中 — 数据抓取模块
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--steel);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--sky);flex-shrink:0;opacity:0.6;"></span>
+              个人主页持续完善中
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Crafted with clarity · 2026</div>
+  </div>
+
+  <script src="js/effects.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

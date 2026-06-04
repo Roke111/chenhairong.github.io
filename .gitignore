@@ -10,3 +10,7 @@ project/
 
 # Config with sensitive info
 config/
+
+# IDE / Workspace
+.codebuddy/
+.workbuddy/
