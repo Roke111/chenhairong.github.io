@@ -104,6 +104,20 @@
     .edu-card p{font-size:14px;color:#3d5d7a}
     @media(max-width:480px){.edu-card{padding:24px 20px}.edu-card h3{font-size:18px}}
 
+    /* ═══════════════ BUILD PROCESS ═══════════════ */
+    .build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .build-card{background:#FFF;border:1px solid rgba(61,93,122,0.15);padding:40px 32px;position:relative}
+    .build-step{font-family:'Archivo',sans-serif;font-size:64px;font-weight:700;letter-spacing:-2px;color:rgba(76,165,215,0.15);position:absolute;top:20px;right:28px;line-height:1;pointer-events:none}
+    .build-icon{display:block;font-size:28px;margin-bottom:16px;line-height:1}
+    .build-card h3{font-family:'Archivo',sans-serif;font-size:18px;font-weight:700;color:#261e5c;margin-bottom:8px}
+    .build-card .build-agent{display:inline-block;font-size:11px;font-weight:600;letter-spacing:2px;color:#4ca5d7;text-transform:uppercase;margin-bottom:12px}
+    .build-card p{font-size:13px;color:#3d5d7a;line-height:1.7}
+    .build-link{color:#4ca5d7;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+    .build-link:hover{color:#261e5c}
+    .build-card code{font-family:'Space Grotesk',monospace;font-size:12px;background:rgba(76,165,215,0.08);padding:2px 6px}
+    @media(max-width:960px){.build-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.build-grid{grid-template-columns:1fr}.build-card{padding:32px 24px}.build-step{font-size:48px;top:16px;right:20px}}
+
     /* ═══════════════ CONTACT ═══════════════ */
     .contact{text-align:center;padding:88px 64px 80px}
     .contact-sub{font-size:18px;color:#3d5d7a;margin-bottom:28px}
@@ -124,6 +138,7 @@
     <a href="#capabilities">能力</a>
     <a href="#experience">经历</a>
     <a href="#skills">技术栈</a>
+    <a href="#build">构建</a>
   </nav>
 </header>
 
@@ -365,6 +380,37 @@
       <span class="edu-period">2017.09 — 2021.06</span>
       <h3>深圳大学 · 物联网工程（本科）</h3>
       <p>广东省高水平大学重点建设高校</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 构建过程 ═══ -->
+<section class="sec" id="build">
+  <div class="sec-inner">
+    <span class="sec-label">关于这个网站</span>
+    <h2 class="sec-heading">How This Site Was Built</h2>
+    <div class="build-grid">
+      <div class="build-card">
+        <span class="build-step">01</span>
+        <span class="build-icon">📋→📄</span>
+        <span class="build-agent">Agent 1 · 内容生成</span>
+        <h3>简历结构化</h3>
+        <p>将 <code>content/</code> 目录中的简历原始内容提交给 AI Agent，自动解析并结构化输出 JSON——提取个人信息、工作经历、项目详情、量化指标、技能标签等字段，作为网站数据源。</p>
+      </div>
+      <div class="build-card">
+        <span class="build-step">02</span>
+        <span class="build-icon">🎨→💻</span>
+        <span class="build-agent">Agent 2 · 设计转码</span>
+        <h3>参考网站风格生成页面</h3>
+        <p>选择 <a href="https://my-website-k15iozgc.wegic.net" target="_blank" rel="noopener" class="build-link">参考网站</a> 的现代极简设计风格，Agent 分析其配色、字体、布局与留白节奏后，将 Swiss Minimalism 设计语言转化为完整的 HTML/CSS 代码，并自动填充简历内容到对应区块。</p>
+      </div>
+      <div class="build-card">
+        <span class="build-step">03</span>
+        <span class="build-icon">🎨→🔄</span>
+        <span class="build-agent">Agent 3 · 配色迁移</span>
+        <h3>四色体系替换颜色</h3>
+        <p>输入 <a href="https://huemint.com/brand-3/#palette=f4feff-261e5c-3d5d7a-4ca5d7" target="_blank" rel="noopener" class="build-link">Huemint 配色方案</a> 的 Nordic Azure 四色色板，Agent 自动将全站颜色精准替换——冰白底、深海蓝字、钢蓝辅助、天蓝点缀，四色同属蓝系色谱，形成统一的品牌温度。</p>
+      </div>
     </div>
   </div>
 </section>
